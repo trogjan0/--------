@@ -1,0 +1,129 @@
+{% extends 'H&FTemp.html' %}
+
+{% block body %}
+    <section class="intro">
+      <div class="intro__block">
+        <a href="shoes.html" class="intro__item">
+          <div
+            class="intro__content"
+            style="background-image: url('../static/img/pictures/intro.png')"
+          >
+            <div class="intro__content-item">
+              <p class="intro__text">БАЗОВАЯ КОЛЛЕКЦИЯ</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+    <!-- /intro -->
+    <section class="shoes">
+      <h2 class="shoes__title">Хиты сезона</h2>
+      <div class="wrapper">
+        {%for row in enemy%}
+        {% if row[11] == "shoes" %}
+        <div id="shoes-1" class="block">
+          <a href="shoes.html" class="shoes__item">
+            <div
+              class="shoes__content"
+              style="
+                background-image: url({{row[3]}});
+                background-size: contain;
+                background-position: center;
+              "
+            ></div>
+            <!-- /shoes__content -->
+            <h3>{{ row[1] }}</h3>
+          </a>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <!-- /block -->
+      </div>
+      <!-- /wrapper -->
+    </section>
+    <!-- /shoes -->
+    <section class="brand">
+      <div class="wrapper">
+        <a id="brand-1" href="eror.html" class="width__auto block">
+          <img src="../static/img/logo/the-north-face.svg.svg" alt="" />
+        </a>
+        <!-- /block -->
+        <a id="brand-2" href="eror.html" class="width__auto block">
+          <img src="../static/img/logo/buffalo.svg.svg" alt="" />
+        </a>
+        <!-- /block -->
+        <a id="brand-3" href="eror.html" class="width__auto block">
+          <img src="../static/img/logo/converse.svg.svg" alt="" />
+        </a>
+        <!-- /block -->
+        <a id="brand-4" href="eror.html" class="width__auto block">
+          <img src="../static/img/logo/crocs.svg.svg" alt="" />
+        </a>
+        <!-- /block -->
+        <a id="brand-5" href="eror.html" class="width__auto block">
+          <img src="../static/img/logo/dr-martens.svg.svg" alt="" />
+        </a>
+        <!-- /block -->
+        <a id="brand-6" href="eror.html" class="width__auto block">
+          <img src="../static/img/logo/fila.svg.svg" alt="" />
+        </a>
+        <!-- /block -->
+      </div>
+      <!-- /wrapper -->
+    </section>
+    <!-- /brand -->
+    <section class="wear">
+      <div class="wrapper">
+        <div id="wear__big-1" class="wear__big__block">
+          <img src="../static/img/gif/Carhartt-gif.gif" alt="" />
+        </div>
+        <!-- /wear__big__block -->
+        <div id="wear__big-2" class="wear__big__block">
+          <div class="wear__wrapper">
+            <a href="wear.html">
+              <img src="../static/img/pictures/Michigan Coat.png" alt="" />
+              <div class="wear__text">
+                <h2>Куртка</h2>
+                <h3>Michigan <br />Coat</h3>
+                <h2>28 990 Руб.</h2>
+              </div>
+            </a>
+            <!-- /wear__block -->
+            <a href="wear.html">
+              <img src="../static/img/pictures/Windbreaker Pullover.png" alt="" />
+              <div class="wear__text">
+                <h2>Куртка</h2>
+                <h3>Windbreaker <br />Pullover</h3>
+                <h2>25 990 Руб.</h2>
+              </div>
+            </a>
+            <!-- /wear__block -->
+          </div>
+          <div class="wear__wrapper">
+            <a href="wear.html">
+              <img src="../static/img/pictures/SS University T-shirt.png" alt="" />
+              <div class="wear__text">
+                <h2>Футболка</h2>
+                <h3>S/S University <br />T-shirt</h3>
+                <h2>5 990 Руб.</h2>
+              </div>
+            </a>
+            <!-- /wear__block -->
+            <a href="wear.html">
+              <img src="../static/img/pictures/Hooded Scrawl Sweatshirt.png" alt="" />
+              <div class="wear__text">
+                <h2>Толстовка</h2>
+                <h3>Hooded Scrawl <br />Sweatshirt</h3>
+                <h2>14 990 Руб.</h2>
+              </div>
+            </a>
+            <!-- /wear__block -->
+          </div>
+          <!-- /wear__wrapper" -->
+        </div>
+        <!-- /wear__big__block -->
+      </div>
+      <!-- /wrapper -->
+    </section>
+    <!-- /wear -->
+{% endblock %}

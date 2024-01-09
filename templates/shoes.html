@@ -1,0 +1,39 @@
+{% extends 'H&FTemp.html' %}
+
+{% block body %}
+    <section class="list">
+      <div class="container">
+        <ul class="ul__non-style">
+          <li class="margin-right">
+            <a href="index.html"><h3>Главная</h3></a>
+          </li>
+          <li class="margin-right">
+            <h3>-</h3>
+          </li>
+          <li class="margin-right">
+            <h3>Обувь</h3>
+          </li>
+        </ul>
+        <div class="list__wrapper">
+          {% for row in rows %}
+          {% if row[11] == "shoes" %}
+          <div class="list__block">
+            <form action="/insert" method="post">
+              <input type="text" name="id" value={{row[0]}} style="display: none;">
+              <div class="list__block__content">
+                <img src="{{row[3]}}" alt="" />
+                <h3>{{row[1]}}</h3>
+                <h2>{{row[2]}} ₽</h2>
+              </div>
+              <input type="submit" class="button" value="выбрать" id={{row[0]}}></input>
+            </form>
+          </div>
+          {% endif %}
+          {% endfor %}
+          
+        </div>
+        <!-- /list__wrapper -->
+      </div>
+    </section>
+    <!-- /list -->
+{% endblock %}

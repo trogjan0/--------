@@ -1,0 +1,116 @@
+{% extends 'H&FTemp.html' %}
+
+{% block body %}
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .container {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  h2 {
+    color: #333;
+  }
+
+  .cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Добавлено для выравнивания по ширине */
+  }
+
+  .cart-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px; /* Увеличено расстояние между товарами */
+    padding: 15px;
+    width: 100%; /* Изменено на 100% для столбикового расположения */
+    box-sizing: border-box;
+  }
+
+  .cart-item img {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .checkout {
+    margin-top: 20px;
+    text-align: right; /* Изменено на правое выравнивание */
+  }
+
+  .checkout button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="checkout">
+  <form action="/delete" method="post">
+    <input type="submit" value="Очистить корзину" style="background-color: #000;
+  color: #fff;"></input>
+  </form>
+</div>
+  <h2>Корзина</h2>
+  {% for row in rows %}
+  <div class="cart" style="background-color: #fff; display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1%;">
+      <img src="{{row[1]}}" alt="Product 1" style="width: 30%; margin: 0;">
+      <h3>{{row[0]}}</h3>
+      <p>Цена: {{row[2]}} Руб.</p>
+  </div>
+  {% endfor %}
+  <div class="overlay_pop"></div>
+  <div class="popup">
+    
+    <div class="close-btn">&times;</div>
+    <div class="form"><form action="create" method="post">
+       <h2>Оформление заказа</h2>
+       <div class="form-element">
+          <label for="name">Введите имя</label>
+          <input type="text" name="name" placeholder="Ваше имя">
+       </div>
+       <div class="form-element">
+          <label for="name">Введите номер телефона</label>
+          <input type="text" name="number" placeholder="Ваш номер телефона">
+       </div>
+       <div class="form-element">
+        <label for="comm">Оставьте комментарий</label>
+        <input type="text" name="comm" placeholder="Ваш комментарий">
+     </div>
+       <div class="form-element">
+          <input type="submit" value="Оформить заказ" ></input>
+       </div>
+      </form>
+    </div>
+ </div>
+</div>
+  <div class="checkout">
+    <button id="show-form">Оформить заказ</button>
+  </div>
+</div>
+
+    
+{% endblock %}
